@@ -8,7 +8,7 @@ const app = express();
 var jsonParser = bodyParser.json()
 // var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-const mangasee = new MangaSee(); 
+const mangasee = new MangaSee({ puppeteerInstance: {  args: ['--no-sandbox']  } });
 
 const uri = "mongodb+srv://borff:56709Telephone@manga.gcizg8q.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
