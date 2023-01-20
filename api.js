@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const { MangaSee } = require('@specify_/mangascraper');
-// const cors = require('cors')
+const cors = require('cors')
 
 const app = express();
 var jsonParser = bodyParser.json()
@@ -16,15 +16,15 @@ client.connect(err => {
   console.log("connected!")
 });
 
-// app.use(cors())
-// app.options('*', cors())
+app.use(cors())
+app.options('*', cors())
 
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-//   res.header('Access-Control-Allow-Methods','*')
-//   next();
-// });
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header('Access-Control-Allow-Methods','*')
+  next();
+});
 
 // helper functions
 
