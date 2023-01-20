@@ -128,6 +128,7 @@ app.post('/removeManga', jsonParser, (req, res) => {
 
 
 // listen port
-app.listen(3000, () => {
-  console.log('API listening on port 3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.warn(`App listening on http://localhost:${PORT}`);
 });
