@@ -6,7 +6,7 @@ const cors = require('cors')
 
 const app = express();
 var jsonParser = bodyParser.json()
-const mangasee = new MangaSee();
+const mangasee = new MangaSee({ puppeteerInstance: { instance: 'default', launch: { args: ['--no-sandbox'] } } });
 const uri = "mongodb+srv://borff:56709Telephone@manga.gcizg8q.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect(err => {
@@ -87,7 +87,7 @@ app.get('/library', async (req, res) => {
   });
 });
 
-// set methods
+// POST methods
 
 /* 
   POST /addManga/
